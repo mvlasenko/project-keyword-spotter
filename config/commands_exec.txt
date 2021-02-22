@@ -1,0 +1,2 @@
+switch_on,python control_shelly.py --on,0.6
+switch_off,python control_shelly.py --off,0.6
