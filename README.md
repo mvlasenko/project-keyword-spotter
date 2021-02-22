@@ -1,4 +1,4 @@
-# Thais is fork, original code is located here
+# This is fork, original code is located here
 
 https://github.com/google-coral/project-keyword-spotter
 
