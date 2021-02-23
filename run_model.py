@@ -38,7 +38,7 @@ def print_results(result, commands, labels, top=3):
       threshold = 0.5
     if top_results[p] and result[top_results[p]] > threshold:
       sys.stdout.write("\033[1m\033[93m*%15s*\033[0m (%.3f)" % (l, result[top_results[p]]))
-      if(l == "exit_program" or l == "exit_application" or l == "exit_game")
+      if l == "exit_program" or l == "exit_application" or l == "exit_game":
         sys.exit()
     elif result[top_results[p]] > 0.005:
       sys.stdout.write(" %15s (%.3f)" % (l, result[top_results[p]]))
