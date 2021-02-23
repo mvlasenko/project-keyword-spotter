@@ -7,7 +7,7 @@ import os
 import sys
 import model
 
-def run_command(self, command):
+def run_command(command):
   print("Executing: [{}]".format(command))
   if command == "exit_application":
     sys.exit()
