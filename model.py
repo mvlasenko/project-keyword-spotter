@@ -283,7 +283,7 @@ def classify_audio(audio_device_index, interpreter, labels_file,
           last_detection = 0
         if labels[detection] in commands.keys() and detection != last_detection:
           print(labels[detection], commands[labels[detection]])
-          dectection_callback(commands[labels[detection]]['key'])
+          dectection_callback(labels[detection], commands[labels[detection]]['key'])
           last_detection = detection
       if spectrogram.mean() < 0.001:
         print("Warning: Input audio signal is nearly 0. Mic may be off ?")
