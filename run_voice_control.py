@@ -11,10 +11,13 @@ class ExecCommand(object):
 
   def __init__(self):
 
-  def run_command(self, command):
+  def run_command(self, command, labels):
     print("Executing: [{}]".format(command))
-    os.system(command)
-
+    
+    if command == "exit_application":
+      sys.exit()
+    else:
+      os.system(command)
 
 def main():
   parser = argparse.ArgumentParser()
