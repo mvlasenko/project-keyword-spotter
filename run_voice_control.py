@@ -6,6 +6,7 @@ import argparse
 import os
 import sys
 import model
+import time
 
 class ExecCommand(object):
 
@@ -13,20 +14,25 @@ class ExecCommand(object):
     self.args = args
 
   def run_command(self, label, command):
-    if label == "exit_program" or label == "exit_application" or label == "exit_game":
+    if label == self.args.exit_label or label == "exit_application":
+      sys.stdout.write("Exit application...")
       sys.exit()
     elif label == self.args.init_label:
-      os.system(command)
-    else:
+      sys.stdout.write("Start hearing...")
+      self.start_hearing = time.perf_counter()
+    elif time.perf_counter() - self.start_hearing < self.args.init_time:
+      sys.stdout.write("Executing...")
+      self.start_hearing = time.perf_counter()
       os.system(command)
 
 def main():
   parser = argparse.ArgumentParser()
   parser.add_argument("--init_label", help="init label")
   parser.add_argument("--init_time", help="init time", default=10)
+  parser.add_argument("--exit_label", help="exit label", default="exit_application")
   model.add_model_flags(parser)
   args = parser.parse_args()
-  interpreter = model.make_interpreter(args.model_file)
+  interpreter = model.make_interpreter("models/" + args.model_file)
   interpreter.allocate_tensors()
   mic = args.mic if args.mic is None else int(args.mic)
   exec_command = ExecCommand(args)
@@ -35,7 +41,7 @@ def main():
   sys.stdout.write("--------------------\n")
 
   model.classify_audio(mic, interpreter,
-                       labels_file="config/labels_gc2.raw.txt",
+                       labels_file="config/" + args.labels_file,
                        commands_file="config/commands_exec.txt",
                        dectection_callback=exec_command.run_command,
                        sample_rate_hz=int(args.sample_rate_hz),
