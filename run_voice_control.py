@@ -20,10 +20,12 @@ class ExecCommand(object):
     elif label == self.args.init_label:
       sys.stdout.write("Start hearing...")
       self.start_hearing = time.perf_counter()
-    elif time.perf_counter() - self.start_hearing < self.args.init_time:
+    elif not self.args.init_label or time.perf_counter() - self.start_hearing < self.args.init_time:
       sys.stdout.write("Executing...")
       self.start_hearing = time.perf_counter()
       os.system(command)
+    elif self.args.init_label and time.perf_counter() - self.start_hearing >= self.args.init_time:
+      sys.stdout.write("Hearing time is over. Say init word again.")
 
 def main():
   parser = argparse.ArgumentParser()
