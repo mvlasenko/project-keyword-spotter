@@ -12,7 +12,7 @@ class ExecCommand(object):
 
   def __init__(self, args):
     self.args = args
-    self.start_hearing = None
+    self.start_hearing = 0.0
 
   def run_command(self, label, command):
     if label == self.args.exit_label or label == "exit_application":

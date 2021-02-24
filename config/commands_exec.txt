@@ -1,3 +1,4 @@
+open_application,open_application,0.5
+exit_application,exit_application,0.5
 switch_on,python3 control_shelly.py --on,0.6
 switch_off,python3 control_shelly.py --off,0.6
-exit_application,exit_application,0.5
