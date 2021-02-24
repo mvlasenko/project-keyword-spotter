@@ -31,7 +31,7 @@ class ExecCommand(object):
 def main():
   parser = argparse.ArgumentParser()
   parser.add_argument("--init_label", help="init label")
-  parser.add_argument("--init_time", help="init time", default=10)
+  parser.add_argument("--init_time", help="init time", default=10, type=float)
   parser.add_argument("--exit_label", help="exit label", default="exit_application")
   model.add_model_flags(parser)
   args = parser.parse_args()
