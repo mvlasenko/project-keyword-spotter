@@ -283,7 +283,6 @@ def classify_audio(audio_device_index, interpreter, labels_file,
               if detection < 0:
                 detection = top3[p]
         if detection < 0 and last_detection > 0:
-          print("---------------")
           last_detection = 0
         if labels[detection] in commands.keys() and detection != last_detection:
           print(labels[detection], commands[labels[detection]])

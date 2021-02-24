@@ -103,3 +103,11 @@ Execute params:
 `--num_frames_hop=33` - Optional: Number of frames to wait between model inference calls. Smaller numbers will reduce the latancy while increasing compute cost. Must devide 198. Defaults to 33.
 
 `--sample_rate_hz=16000` - Optional: Sample Rate. The model expects 16000. However you may alternative sampling rate that may or may not work. If you specify 48000 it will be downsampled to 16000.
+
+# Examples
+
+run with init word
+
+```
+~/ python3 run_voice_control.py --init_label=open_application --init_time=10
+```

@@ -15,17 +15,17 @@ class ExecCommand(object):
 
   def run_command(self, label, command):
     if label == self.args.exit_label or label == "exit_application":
-      sys.stdout.write("Exit application...")
+      sys.stdout.write("Exit application...\n")
       sys.exit()
     elif label == self.args.init_label:
-      sys.stdout.write("Start hearing...")
+      sys.stdout.write("Start hearing...\n")
       self.start_hearing = time.perf_counter()
     elif not self.args.init_label or time.perf_counter() - self.start_hearing < self.args.init_time:
-      sys.stdout.write("Executing...")
+      sys.stdout.write("Executing...\n")
       self.start_hearing = time.perf_counter()
       os.system(command)
     elif self.args.init_label and time.perf_counter() - self.start_hearing >= self.args.init_time:
-      sys.stdout.write("Hearing time is over. Say init word again.")
+      sys.stdout.write("Hearing time is over. Say init word again.\n")
 
 def main():
   parser = argparse.ArgumentParser()
