@@ -1,5 +1,5 @@
-0 Background Noise
-1 exit_application
-2 open_application
-3 switch_off
-4 switch_on
+neutral
+exit_application
+open_application
+switch_off
+switch_on

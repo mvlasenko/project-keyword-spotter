@@ -112,6 +112,12 @@ run with init word
 ~/ python3 run_voice_control.py --init_label=open_application --init_time=10
 ```
 
+use another model
+
+```
+~/ python3 run_voice_control.py --model_file=model.tflite --labels.txt
+```
+
 ukrainian model
 
 ```
