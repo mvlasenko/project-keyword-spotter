@@ -115,7 +115,7 @@ run with init word
 use another model
 
 ```
-~/ python3 run_voice_control.py --model_file=model.tflite --labels.txt
+~/ python3 run_model.py --model_file=model.tflite --labels_file=labels.txt
 ```
 
 ukrainian model
