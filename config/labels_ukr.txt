@@ -1,5 +1,0 @@
-neutral
-exit_application
-open_application
-switch_off
-switch_on
