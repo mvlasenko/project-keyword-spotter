@@ -117,9 +117,3 @@ use another model
 ```
 ~/ python3 run_model.py --model_file=model.tflite --labels_file=labels.txt
 ```
-
-ukrainian model
-
-```
-~/ python3 run_voice_control.py --init_label=open_application --init_time=10 --model_file=voice_commands_ukr.tflite --labels_file=labels_ukr.txt
-```
